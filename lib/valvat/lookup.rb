@@ -26,9 +26,9 @@ class Valvat
       @client ||= begin
         # Require Savon only if really needed!
         require 'savon' unless defined?(Savon)
-
+                
         # Quiet down Savon and HTTPI
-        Savon.logger.level = Logger::WARN
+        Savon.configure { |config| config.log = false }        
         HTTPI.logger.level = Logger::WARN
 
         Savon::Client.new do
