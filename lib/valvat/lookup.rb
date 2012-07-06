@@ -18,7 +18,7 @@ class Valvat
         if err.respond_to?(:to_hash) && err.to_hash[:fault] && err.to_hash[:fault][:faultstring] == "{ 'INVALID_INPUT' }"
           return false
         end
-        nil
+        raise err
       end
     end
 
