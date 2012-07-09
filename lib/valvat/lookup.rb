@@ -31,10 +31,10 @@ class Valvat
         HTTPI.log = false  
         
         # Quiet down Savon
-        # Savon.configure do |config|
-        #   config.log = false            # disable logging
-        #   config.log_level = :info      # changing the log level
-        # end
+        Savon.configure do |config|
+          config.log = false            # disable logging
+          config.log_level = :info      # changing the log level
+        end
 
         Savon::Client.new do
           wsdl.document = 'http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl'
